@@ -1,24 +1,27 @@
-﻿using System;
-using Microsoft.Owin;
+using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Bookstore.Domain.Customers;
+using Microsoft.AspNetCore.Owin;
+using Microsoft.Owin;
+
+
 
 namespace Bookstore.Web.Helpers
 {
-    public class LocalAuthenticationMiddleware : OwinMiddleware
+    public class LocalAuthenticationMiddleware : Microsoft.Owin.OwinMiddleware
     {
         private const string UserId = "FB6135C7-1464-4A72-B74E-4B63D343DD09";
 
         private readonly ICustomerService _customerService;
 
-        public LocalAuthenticationMiddleware(OwinMiddleware next, ICustomerService customerService) : base(next)
+        public LocalAuthenticationMiddleware(Microsoft.Owin.OwinMiddleware next, ICustomerService customerService) : base(next)
         {
             _customerService = customerService;
         }
 
-        public override async Task Invoke(IOwinContext context)
+        public override async Task Invoke(Microsoft.Owin.IOwinContext context)
         {
             if (context.Request.Path.Value.StartsWith("/Authentication/Login"))
             {
