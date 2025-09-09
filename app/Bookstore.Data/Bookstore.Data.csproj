@@ -51,14 +51,7 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Magick.NET-Q8-AnyCPU, Version=14.2.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Magick.NET-Q8-AnyCPU.14.6.0\lib\netstandard20\Magick.NET-Q8-AnyCPU.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Magick.NET.Core, Version=14.2.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Magick.NET.Core.14.6.0\lib\netstandard20\Magick.NET.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -98,19 +91,6 @@
       <Name>Bookstore.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="AWSSDK.Rekognition">
-      <Version>3.7.400.129</Version>
-    </PackageReference>
-    <PackageReference Include="AWSSDK.S3">
-      <Version>3.7.416.5</Version>
-    </PackageReference>
-    <PackageReference Include="EntityFramework">
-      <Version>6.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="Magick.NET-Q8-AnyCPU">
-      <Version>14.6.0</Version>
-    </PackageReference>
-  </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

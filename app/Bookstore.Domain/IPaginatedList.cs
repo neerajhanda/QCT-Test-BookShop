@@ -13,6 +13,8 @@ namespace Bookstore.Domain
 
         int TotalPages { get; }
 
+        int TotalCount { get; }
+
         Task PopulateAsync();
 
         IEnumerable<int> GetPageList(int count);

@@ -37,5 +37,7 @@ namespace Bookstore.Domain.Addresses
         public Customer Customer { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        public bool IsPrimary { get; set; } = false;
     }
 }

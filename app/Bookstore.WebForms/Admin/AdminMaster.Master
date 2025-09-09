@@ -1,0 +1,124 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="Bookstore.WebForms.Admin.AdminMaster" %>
+<%@ Register TagPrefix="uc" TagName="AdminNavigationControl" Src="~/Controls/AdminNavigationControl.ascx" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server">
+            Admin Portal - Bob's Used Books
+        </asp:ContentPlaceHolder>
+    </title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/site.css" />
+    <link rel="stylesheet" href="~/Content/css/styles.css" />
+    <link rel="stylesheet" href="~/Content/css/custom-style.css" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        
+        <!-- Admin Navigation Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg bg-light mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="~/Admin/Dashboard.aspx">Bob's Used Books - Admin</a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarSupportedContent">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/Dashboard.aspx">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/Orders.aspx">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/Offers.aspx">Offers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/Inventory.aspx">Inventory</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Admin/ReferenceData.aspx">Reference Data</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Admin Login/Logout Section -->
+                    <div class="navbar-nav">
+                        <asp:PlaceHolder ID="AdminWelcome" runat="server">
+                            <div class="hstack gap-2">
+                                <a class="nav-link text-dark me-2" href="~/Address.aspx">
+                                    Hello <asp:Literal ID="AdminUserNameLiteral" runat="server" />!
+                                </a>
+                                <a class="nav-link text-dark" href="~/Default.aspx">Back to Store</a>
+                                <div class="vr"></div>
+                                <asp:LinkButton ID="AdminLogoutButton" runat="server" CssClass="nav-link text-dark" 
+                                    OnClick="AdminLogoutButton_Click" Text="Logout" />
+                            </div>
+                        </asp:PlaceHolder>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content Container -->
+        <div class="container-fluid pb-5 mb-5">
+            <!-- Admin Navigation Control -->
+            <uc:AdminNavigationControl ID="AdminNavigation" runat="server" />
+            
+            <!-- Error/Success Message Display -->
+            <asp:Panel ID="ErrorPanel" runat="server" CssClass="alert alert-danger" Visible="false">
+                <asp:Literal ID="ErrorMessage" runat="server" />
+            </asp:Panel>
+            
+            <asp:Panel ID="SuccessPanel" runat="server" CssClass="alert alert-success" Visible="false">
+                <asp:Literal ID="SuccessMessage" runat="server" />
+            </asp:Panel>
+
+            <main role="main" class="pb-3">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+        </div>
+
+        <!-- Admin Footer -->
+        <footer class="border-top footer text-muted" style="bottom:0;">
+            <div class="container-fluid">
+                <p>&copy; <%= DateTime.Now.Year %> - Bob's Used Books - Admin Portal</p>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script src="~/Scripts/jquery/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        
+        <asp:ContentPlaceHolder ID="ScriptContent" runat="server">
+        </asp:ContentPlaceHolder>
+        
+        <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

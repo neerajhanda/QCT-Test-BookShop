@@ -16,6 +16,8 @@ namespace Bookstore.Domain
 
         public int TotalPages { get; private set; }
 
+        public int TotalCount { get; private set; }
+
         private PaginatedList(){ }
 
         public PaginatedList(IQueryable<T> source, int pageIndex, int pageSize) 
@@ -31,7 +33,7 @@ namespace Bookstore.Domain
             var items = await source.OrderBy(x => x.Id).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
 
             PageIndex = pageIndex;
-
+            TotalCount = count;
             TotalPages = (int)Math.Ceiling(count / (double)pageSize);
 
             AddRange(items);
