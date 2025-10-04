@@ -1,9 +1,12 @@
-﻿using Bookstore.Domain.ReferenceData;
+using Bookstore.Domain.ReferenceData;
 using Bookstore.Web.Areas.Admin.Models.ReferenceData;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace Bookstore.Web.Areas.Admin.Controllers
 {
